@@ -4,32 +4,6 @@ from rescue_line_setup import *
 #from stanza_main import *
 #from guadagna_centro import *
 
-#PROVA COL CAVOOOOO ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
-
-# #from ev3RemoteCommander import RemoteCommander, RemoteTounchSensor, RemoteUltrasonicSensor
-
-# import socket
-# import sys
-# import time
-
-# brick = EV3Brick()
-# # crea la variabile con l'ev3 remoto con il cavo
-# brick.speaker.beep()
-# brick.screen.set_font(Font(size=15, bold=True))
-
-
-
-#PROVA COL CAVO aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-# sensorOff(DIST_BACK_OFF)
-# time.sleep(0.2)
-# sensorOff(DIST_LEFT_OFF)
-# time.sleep(0.2)
-# sensorOff(DIST_RIGHT_OFF)
-# time.sleep(0.2)
-
-# getDistanceCm(DIST_FRONT)
-# getDistanceCm(DIST_FRONT)
 
 #Line counter: Quante volte vedo CONSECUTIVAMENTE una linea, su tutti i sensori
 lc_l = 0; lc_r = 0; lc_f = 0
