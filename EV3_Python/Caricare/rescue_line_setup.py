@@ -32,7 +32,7 @@ def connectToRemoteEV3():
 
 
 brick = EV3Brick()
-remoteBrick = connectToRemoteEV3()
+remoteEV3 = connectToRemoteEV3()
 
 
 # Diametro ruota in mm
@@ -74,12 +74,13 @@ light_sensor_front = ColorSensor(Port.S4)
 
 # Sensore ultrasuoni
 # ultrasonic_sensor = UltrasonicSensor(Port.S1)
-remoteUSonicSensorFront = RemoteUltrasonicSensor( remoteBrick, "Port.S3" )
+remoteUSonicSensorFront = RemoteUltrasonicSensor( remoteEV3, "Port.S2" )
+remoteUSonicSensorLeft = RemoteUltrasonicSensor( remoteEV3, "Port.S1" )
 
 
 
 # Motore medio
-# medium_motor = Motor(Port.D)
+#medium_motor = Motor(Port.D)
 
 # Configurazione robot
 ###########################

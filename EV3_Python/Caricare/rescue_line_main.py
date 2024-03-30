@@ -1,21 +1,21 @@
 #!/usr/bin/env pybricks-micropython
 from rescue_line_functions import *
 from rescue_line_setup import *
-from stanza_main import *
+#from stanza_main import *
 #from guadagna_centro import *
 
 #PROVA COL CAVOOOOO ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 
-from ev3RemoteCommander import RemoteCommander, RemoteTounchSensor, RemoteUltrasonicSensor
+# #from ev3RemoteCommander import RemoteCommander, RemoteTounchSensor, RemoteUltrasonicSensor
 
-import socket
-import sys
-import time
+# import socket
+# import sys
+# import time
 
-brick = EV3Brick()
-# crea la variabile con l'ev3 remoto con il cavo
-brick.speaker.beep()
-brick.screen.set_font(Font(size=15, bold=True))
+# brick = EV3Brick()
+# # crea la variabile con l'ev3 remoto con il cavo
+# brick.speaker.beep()
+# brick.screen.set_font(Font(size=15, bold=True))
 
 
 
@@ -66,15 +66,20 @@ isLine_l = False; isLine_r = False
 
 countVerdi = 0
 while True:  
-    
+    # dist = remoteUSonicSensorFront.distance()
+    # distLeft = remoteUSonicSensorLeft.distance()
+    # print("front" + str(dist/10) + ", left: " + str(distLeft / 10))
+
+
     if color_sensor_left.color() == Color.RED and color_sensor_right.color() == Color.RED:
         robot.straight(-40) 
         if light_sensor_front.color() == Color.RED:
             brick_speaker_beep(8)
             quit()
+            
 
     #SE PREMO UN PULSANTE (TRANNE STOP!!!) RIAVVIA IL SERVER ED ESCE DAL PROGRAMMA (Questo alla fine ignorato malamente?)
-    check_quit_and_restart_server()
+    #check_quit_and_restart_server()
 
     ## OSTACOLO
     ############################
@@ -98,7 +103,8 @@ while True:
         robot.stop() #dopo il drive ci va lo stop
         stanzaTrovata = stagnolaTrovata()
         if stanzaTrovata:
-            stanza_main()
+            #algorimo stanza
+            pass
         else:
             print("Non ho trovato la stanza, continuo il seguilinea")
             # far andare un attimo in avanti ed eseguire lo scan se tutti e tre vedono bianco
@@ -140,7 +146,7 @@ while True:
     countVerdi = countVerdi + 1 if isGreen_l or isGreen_r else 0
 
     attivaVerde = True
-    print(countVerdi)
+    #print(countVerdi)
     if attivaVerde and ((isGreen_l or isGreen_r) and countVerdi >= 6): #3 
         robot.drive(0,0) 
         robot.straight(-10)
@@ -302,7 +308,7 @@ while True:
     bc_f = bc_f + 1 if not isLine_f else 0
 
     fullGapCounter = fullGapCounter + 1 if not isLine_l and not isLine_r and not isLine_f else 0
-    
+   
 
     corrc_list_l.append(lc_l)
     corrc_list_r.append(lc_r)
@@ -312,7 +318,7 @@ while True:
         dl = 1 if isLine_l else 0
         dr = 1 if isLine_r else 0
         df = 1 if isLine_f else 0
-        print( ". ",dl,"-",dr,"\t",lc_l,"-",lc_r,"\t\t F: ",df," ",lc_f, "\t\t Corr:(", corrc_fwd,") ", corrc_left, " ", corrc_right, "\t Incrocio: ", correzionePerIncrocio, "\t Contatori Bianco Completo: ", fullGapCounter, "   counterVerdi", countVerdi)
+        #print( ". ",dl,"-",dr,"\t",lc_l,"-",lc_r,"\t\t F: ",df," ",lc_f, "\t\t Corr:(", corrc_fwd,") ", corrc_left, " ", corrc_right, "\t Incrocio: ", correzionePerIncrocio, "\t Contatori Bianco Completo: ", fullGapCounter, "   counterVerdi", countVerdi)
 
 
     ### GAP
@@ -337,7 +343,7 @@ while True:
         while True:
 
             #SE PREMO UN PULSANTE (TRANNE STOP!!!) RIAVVIA IL SERVER ED ESCE DAL PROGRAMMA
-            check_quit_and_restart_server()
+            # check_quit_and_restart_server()
 
             lineLeft = isLine(color_sensor_left.color())
             lineRight = isLine(color_sensor_right.color())
